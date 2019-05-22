@@ -23,6 +23,9 @@ public function fields(Request $request) {
 }
 ~~~
 
+~~~json
+{"lat": 22.097868, "lng": 113.536494, "address": "广东省珠海市香洲区横琴镇环岛东路85珠海长隆海洋王国"}
+~~~
 ![FormField](./images/novaFormField.png)
 
 ![DetailField](./images/novaDetailField.png)
