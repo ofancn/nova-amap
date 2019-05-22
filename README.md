@@ -23,6 +23,6 @@ public function fields(Request $request) {
 }
 ~~~
 
-![FormField](./images/FormField.png)
+![FormField](./images/novaFormField.png)
 
-![DetailField](./images/DetailField.png)
+![DetailField](./images/novaDetailField.png)
