@@ -1,5 +1,5 @@
 <template>
-  <div v-if="field.value.address&&field.asHtml" v-html="field.value"></div>
+  <div v-if="field.asHtml" v-html="field.value"></div>
   <span v-else-if="field.value.address">{{ field.value.address }}</span>
   <span v-else>&mdash;</span>
 </template>
