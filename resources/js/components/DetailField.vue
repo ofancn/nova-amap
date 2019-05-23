@@ -14,7 +14,7 @@
         </el-amap>
       </div>
     </div>
-    <span v-else slot="value">-</span>
+    <span v-else slot="value">&mdash;</span>
   </panel-item>
 </template>
 
