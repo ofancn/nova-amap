@@ -7,7 +7,14 @@
         :on-search-result="onSearchResult"
       ></el-amap-search-box>
       <div class="amap-page-container">
-        <el-amap vid="amapDemo" :center="center" :zoom="zoom" class="amap-field" :events="events">
+        <el-amap
+          vid="amapDemo"
+          :center="center"
+          :zoom="zoom"
+          :plugin="!field.value?plugin:null"
+          class="amap-field"
+          :events="events"
+        >
           <el-amap-marker vid="component-marker" :position="position" v-if="position.length"></el-amap-marker>
         </el-amap>
       </div>
@@ -51,6 +58,27 @@ export default {
           this.setAmapValue();
         }
       },
+      plugin: [
+        {
+          pName: "Geolocation",
+          events: {
+            init: o => {
+              o.getCurrentPosition((status, result) => {
+                if (result && result.position) {
+                  let { lng, lat } = result.position;
+                  this.lng = lng;
+                  this.lat = lat;
+                  this.setMarker(lng, lat);
+                  this.geocoder(lng, lat);
+                  this.setAmapValue();
+                  this.zoom = 20;
+                  this.$nextTick();
+                }
+              });
+            }
+          }
+        }
+      ],
       lng: 0,
       lat: 0
     };
